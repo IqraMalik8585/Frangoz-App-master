@@ -967,6 +967,7 @@ class _HomePageState extends State<HomePage>with WidgetsBindingObserver {
       }
     }
 
+
     if (!locationStatus.isGranted) {
       PermissionStatus newLocationStatus = await Permission.location.request();
 
