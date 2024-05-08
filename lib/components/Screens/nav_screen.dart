@@ -50,7 +50,7 @@ class _HomepageState extends State<Homepage> {
         controller: _pageController,
         onPageChanged: _onPageChanged,
         children: [
-          HomePage2(),
+          HomePage(),
           MapSample(),
         ],
       ),

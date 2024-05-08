@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
 import 'package:flutter_background_service_android/flutter_background_service_android.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -13,8 +14,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 import 'Globals.dart';
 import 'Tracker/trac.dart';
+import 'package:location/location.dart' as loc;
+import 'package:geolocator/geolocator.dart';
 
+import 'package:permission_handler/permission_handler.dart';
 
+import 'location00.dart';
 void main()  async{
   WidgetsFlutterBinding.ensureInitialized();
   await _requestPermissions();
@@ -95,7 +100,7 @@ void onStart(ServiceInstance service) async {
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
 
- // LocationService locationService = LocationService();
+  LocationService locationService = LocationService();
   if (service is AndroidServiceInstance) {
     service.on('setAsForeground').listen((event) {
       service.setAsForegroundService();

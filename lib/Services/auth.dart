@@ -34,7 +34,7 @@ signInWithGoogle(BuildContext context)async {
       "id":userDetails.uid
     };
     await DatabaseMethods().addUser(userDetails.uid, userInfoMap).then((value) {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage2()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
     });
   }
 
